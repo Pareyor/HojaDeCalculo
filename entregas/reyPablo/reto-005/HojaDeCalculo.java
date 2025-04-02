@@ -25,5 +25,17 @@ public class HojaDeCalculo {
 
     public int getNumeroDeColumnas() {
         return COLUMNAS;
-    }    
+    }
+
+    public void ordenarColumna(int columna) {
+        for (int i = 1; i < FILAS; i++) {
+            String valorActual = celdas[i][columna].getContenido();
+            int j = i - 1;
+            while (j >= 0 && celdas[j][columna].getContenido().compareTo(valorActual) > 0) {
+                celdas[j + 1][columna].setContenido(celdas[j][columna].getContenido());
+                j--;
+            }
+            celdas[j + 1][columna].setContenido(valorActual);
+        }
+    }
 }
